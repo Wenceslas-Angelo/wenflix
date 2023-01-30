@@ -1,12 +1,16 @@
 import React from 'react';
 
 import Banner from '../components/Banner';
+import Grid from '../components/Grid';
+import Thumbnail from '../components/Thumbnail';
+import Spinner from '../components/Spinner';
 
-import { BACKDROP_SIZE, IMAGE_BASE_URL } from '../utils/config';
+import { BACKDROP_SIZE, IMAGE_BASE_URL, POSTER_SIZE } from '../utils/config';
 import useHomeFetch from '../hooks/useHomeFetch';
+import noImage from '../images/no_image.jpg';
 
 function Home() {
-  const { state } = useHomeFetch();
+  const { state, loading } = useHomeFetch();
   return (
     <div className="Home">
       {state.results[0] ? (
@@ -16,6 +20,23 @@ function Home() {
           text={state.results[0].overview}
         />
       ) : null}
+
+      <Grid header={'Popular Movies'}>
+        {state.results.map((movie) => (
+          <Thumbnail
+            key={movie.id}
+            image={
+              movie.poster_path
+                ? IMAGE_BASE_URL + POSTER_SIZE + movie.poster_path
+                : noImage
+            }
+            movieId={movie.id}
+            clickable
+          />
+        ))}
+      </Grid>
+
+      {loading && <Spinner />}
     </div>
   );
 }

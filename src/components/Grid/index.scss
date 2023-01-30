@@ -1,0 +1,15 @@
+.grid {
+  margin: 0 auto;
+  padding: 0 20px;
+
+  h1 {
+    padding: 20px;
+    color: #fff;
+  }
+
+  .content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 2rem;
+  }
+}
