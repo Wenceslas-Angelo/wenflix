@@ -1,0 +1,39 @@
+.header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &__search {
+    position: relative;
+    .search-icon {
+      position: absolute;
+      color: #a3a696;
+      font-size: 20px;
+      top: 0;
+      bottom: 0;
+      margin: auto 0;
+      left: 10px;
+    }
+    input {
+      border: 1px solid #a3a696;
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+      padding: 10px 10px 10px 40px;
+      color: white;
+      background-color: inherit;
+      outline: none;
+      font-size: 20px;
+    }
+  }
+
+  &__user {
+    display: flex;
+    align-items: center;
+    a {
+      color: #fff;
+      padding-left: 10px;
+      font-weight: bolder;
+    }
+  }
+}

@@ -1,3 +1,10 @@
+$dark-back: #09090a;
+$white: #ffffff;
+$w: #3f4e50;
+$e: #a3a696;
+$d: #5a1705;
+$p: #9f3006;
+
 * {
   padding: 0;
   margin: 0;
@@ -5,10 +12,11 @@
   font-family: sans-serif;
 }
 
-html {
-  font-size: 62.5%;
-}
-
 body {
   overflow-x: hidden;
+  background-color: #09090a;
+}
+
+a {
+  text-decoration: none;
 }
