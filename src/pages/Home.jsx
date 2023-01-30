@@ -8,9 +8,10 @@ import Spinner from '../components/Spinner';
 import { BACKDROP_SIZE, IMAGE_BASE_URL, POSTER_SIZE } from '../utils/config';
 import useHomeFetch from '../hooks/useHomeFetch';
 import noImage from '../images/no_image.jpg';
+import Button from '../components/Button';
 
 function Home() {
-  const { state, loading } = useHomeFetch();
+  const { state, loading, setIsLoadingMore } = useHomeFetch();
   return (
     <div className="Home">
       {state.results[0] ? (
@@ -37,6 +38,10 @@ function Home() {
       </Grid>
 
       {loading && <Spinner />}
+
+      {state.total_pages > state.page && !loading && (
+        <Button text="Load More" callback={() => setIsLoadingMore(true)} />
+      )}
     </div>
   );
 }
