@@ -1,0 +1,63 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  width: 200px;
+  height: 100vh;
+  border-right: 1px solid #4e4e4c4d;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #09090a;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #4e4e4cc9;
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  &__logo {
+    text-align: center;
+    padding: 20px 0;
+    a {
+      font-size: 40px;
+      color: #fff;
+      font-weight: bolder;
+      letter-spacing: 5px;
+      span {
+        color: #9f3006;
+      }
+    }
+  }
+
+  &__categories,
+  &__genres {
+    padding: 10px 0 0 10px;
+    h2 {
+      color: #fff;
+    }
+
+    ul {
+      list-style: none;
+      li {
+        font-size: 20px;
+        margin: 15px 0;
+        transition: all 0.3s linear;
+        cursor: pointer;
+        span {
+          margin-left: 10px;
+        }
+        color: #a3a696;
+        &:hover {
+          color: white;
+        }
+      }
+    }
+  }
+}
