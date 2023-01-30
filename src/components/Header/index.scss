@@ -3,6 +3,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  top: 0;
+  width: 80%;
+  background-color: #09090a;
+  z-index: 100;
   &__search {
     position: relative;
     .search-icon {
