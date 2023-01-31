@@ -18,8 +18,16 @@ function SideBar() {
         <ul>
           {categories.map((category) => (
             <li key={category.id}>
-              <span>{category.icon}</span>
-              <span>{category.name}</span>
+              <Link
+                to={
+                  category.name === 'Popular'
+                    ? '/'
+                    : `/category/${category.name}`
+                }
+              >
+                <span>{category.icon}</span>
+                <span>{category.name}</span>
+              </Link>
             </li>
           ))}
         </ul>
@@ -30,8 +38,10 @@ function SideBar() {
         <ul>
           {genres.map((genre) => (
             <li key={genre.id}>
-              <span>{genre.icon}</span>
-              <span>{genre.name}</span>
+              <Link to={`/genre/${genre.name}`}>
+                <span>{genre.icon}</span>
+                <span>{genre.name}</span>
+              </Link>
             </li>
           ))}
         </ul>

@@ -4,6 +4,9 @@ $w: #3f4e50;
 $e: #a3a696;
 $d: #5a1705;
 $p: #9f3006;
+$backgroundDark: #181818;
+$backgroundLight: #eef2f2;
+$secondary: #7b818a;
 
 * {
   padding: 0;
@@ -14,7 +17,7 @@ $p: #9f3006;
 
 body {
   overflow-x: hidden;
-  background-color: #09090a;
+  background-color: #181818;
 }
 
 a {

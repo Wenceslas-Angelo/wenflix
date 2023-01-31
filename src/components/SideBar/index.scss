@@ -50,12 +50,15 @@
         margin: 15px 0;
         transition: all 0.3s linear;
         cursor: pointer;
-        span {
-          margin-left: 10px;
-        }
-        color: #a3a696;
-        &:hover {
-          color: white;
+        a {
+          color: #a3a696;
+          &:hover {
+            color: white;
+          }
+
+          span {
+            margin-left: 10px;
+          }
         }
       }
     }
