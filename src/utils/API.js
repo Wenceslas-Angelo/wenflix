@@ -3,6 +3,7 @@ import {
   POPULAR_BASE_URL,
   UPCOMING_BASE_URL,
   TOP_RATED_BASE_URL,
+  GENRE_BASE_URL,
   API_URL,
   API_KEY,
   REQUEST_TOKEN_URL,
@@ -39,17 +40,19 @@ const apiSettings = {
     return dataJson;
   },
   fetchUpcoming: async (searchTerm, page) => {
-    const endpoint = searchTerm
-      ? `${SEARCH_BASE_URL}${searchTerm}&page=${page}`
-      : `${UPCOMING_BASE_URL}&page=${page}`;
+    const endpoint = `${UPCOMING_BASE_URL}&page=${page}`;
     const data = await fetch(endpoint);
     const dataJson = await data.json();
     return dataJson;
   },
-  fetchTopRated: async (searchTerm, page) => {
-    const endpoint = searchTerm
-      ? `${SEARCH_BASE_URL}${searchTerm}&page=${page}`
-      : `${TOP_RATED_BASE_URL}&page=${page}`;
+  fetchTopRated: async (page) => {
+    const endpoint = `${TOP_RATED_BASE_URL}&page=${page}`;
+    const data = await fetch(endpoint);
+    const dataJson = await data.json();
+    return dataJson;
+  },
+  fetchGenre: async (page, genreId) => {
+    const endpoint = `${GENRE_BASE_URL}${genreId}&page=${page}`;
     const data = await fetch(endpoint);
     const dataJson = await data.json();
     return dataJson;

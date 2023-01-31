@@ -8,7 +8,7 @@ const initialState = {
   total_results: 0,
 };
 
-const useHomeFetch = (searchTerm, category) => {
+const useHomeFetch = (searchTerm, category, genre) => {
   const [state, setState] = useState(initialState);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -22,9 +22,11 @@ const useHomeFetch = (searchTerm, category) => {
       if (category === 'Popular') {
         movies = await API.fetchMovies(searchValue, page);
       } else if (category === 'Upcoming') {
-        movies = await API.fetchUpcoming(searchValue, page);
+        movies = await API.fetchUpcoming(page);
       } else if (category === 'Top rated') {
-        movies = await API.fetchTopRated(searchValue, page);
+        movies = await API.fetchTopRated(page);
+      } else if (genre) {
+        movies = await API.fetchGenre(page, genre.id);
       }
       setState((prev) => ({
         ...movies,
@@ -41,7 +43,7 @@ const useHomeFetch = (searchTerm, category) => {
   useEffect(() => {
     setState(initialState);
     fetchMovies(1);
-  }, [category]);
+  }, [category, genre]);
 
   // Search
   useEffect(() => {

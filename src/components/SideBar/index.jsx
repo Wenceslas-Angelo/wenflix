@@ -5,7 +5,7 @@ import categories from '../../utils/categories';
 import genres from '../../utils/genres';
 import './index.scss';
 
-function SideBar({ setCategory }) {
+function SideBar({ setCategory, setGenre, setShowSearch }) {
   return (
     <div className="sidebar">
       <div className="sidebar__logo">
@@ -18,7 +18,16 @@ function SideBar({ setCategory }) {
         <h2>Categories</h2>
         <ul>
           {categories.map((category) => (
-            <li key={category.id} onClick={() => setCategory(category.name)}>
+            <li
+              key={category.id}
+              onClick={() => {
+                setGenre({});
+                setCategory(category.name);
+                category.name === 'Popular'
+                  ? setShowSearch(true)
+                  : setShowSearch(false);
+              }}
+            >
               <Link
                 to={category.name === 'Popular' ? '/' : `/${category.name}`}
               >
@@ -34,7 +43,14 @@ function SideBar({ setCategory }) {
         <h2>Genres</h2>
         <ul>
           {genres.map((genre) => (
-            <li key={genre.id}>
+            <li
+              key={genre.id}
+              onClick={() => {
+                setGenre({ id: genre.id, name: genre.name });
+                setCategory('');
+                setShowSearch(false);
+              }}
+            >
               <Link to={`/genre/${genre.name}`}>
                 <span>{genre.icon}</span>
                 <span>{genre.name}</span>
@@ -49,6 +65,8 @@ function SideBar({ setCategory }) {
 
 SideBar.propTypes = {
   setCategory: PropTypes.func,
+  setGenre: PropTypes.func,
+  setShowSearch: PropTypes.func,
 };
 
 export default SideBar;

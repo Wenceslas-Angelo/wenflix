@@ -11,11 +11,13 @@ import useHomeFetch from '../hooks/useHomeFetch';
 import noImage from '../images/no_image.jpg';
 import Button from '../components/Button';
 
-function Home({ searchTerm, category }) {
+function Home({ searchTerm, category, genre, setShowSearch }) {
   const { state, loading, setIsLoadingMore } = useHomeFetch(
     searchTerm,
-    category
+    category,
+    genre
   );
+
   return (
     <div className="Home">
       {!searchTerm && state.results[0] ? (
@@ -26,7 +28,15 @@ function Home({ searchTerm, category }) {
         />
       ) : null}
 
-      <Grid header={searchTerm ? 'Search Result' : `${category} Movies`}>
+      <Grid
+        header={
+          genre
+            ? `${genre.name} Movies`
+            : searchTerm
+            ? 'Search Result'
+            : `${category} Movies`
+        }
+      >
         {state.results.map((movie) => (
           <Thumbnail
             key={movie.id}
@@ -37,6 +47,7 @@ function Home({ searchTerm, category }) {
             }
             movieId={movie.id}
             clickable
+            setShowSearch={setShowSearch}
           />
         ))}
       </Grid>
@@ -57,6 +68,8 @@ Home.defaultProps = {
 Home.propTypes = {
   searchTerm: PropTypes.string,
   category: PropTypes.string,
+  genre: PropTypes.object,
+  setShowSearch: PropTypes.func,
 };
 
 export default Home;

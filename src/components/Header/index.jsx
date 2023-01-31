@@ -5,14 +5,14 @@ import { Link } from 'react-router-dom';
 import Search from '../Search';
 import './index.scss';
 
-function Header({ setSearchTerm }) {
+function Header({ setSearchTerm, showSearch }) {
   return (
     <header className="header">
       <div className="header__sidebar-action">
         <FaChevronLeft color="#fff" fontSize={20} />
         <FaChevronRight color="#a3a696" fontSize={20} />
       </div>
-      <Search setSearchTerm={setSearchTerm} />
+      {showSearch && <Search setSearchTerm={setSearchTerm} />}
       <div className="header__user">
         <FaUserCircle color="#fff" fontSize={20} />
         <Link to="/">LOGIN</Link>
@@ -23,6 +23,7 @@ function Header({ setSearchTerm }) {
 
 Header.propTypes = {
   setSearchTerm: PropTypes.func.isRequired,
+  showSearch: PropTypes.bool,
 };
 
 export default Header;

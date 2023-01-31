@@ -9,23 +9,33 @@ import Movie from './pages/Movie';
 function App() {
   const [searchTerm, setSearchTerm] = useState('');
   const [category, setCategory] = useState('Popular');
+  const [genre, setGenre] = useState({});
+  const [showSearch, setShowSearch] = useState(true);
 
   return (
     <div className="app">
-      <SideBar setCategory={setCategory} />
+      <SideBar
+        setCategory={setCategory}
+        setGenre={setGenre}
+        setShowSearch={setShowSearch}
+      />
       <div className="container">
-        <Header setSearchTerm={setSearchTerm} />
+        <Header setSearchTerm={setSearchTerm} showSearch={showSearch} />
         <div className="pages">
           <Routes>
             <Route
               path="/"
-              element={<Home searchTerm={searchTerm} category="Popular" />}
+              element={
+                <Home
+                  searchTerm={searchTerm}
+                  category="Popular"
+                  setShowSearch={setShowSearch}
+                />
+              }
             />
-            <Route
-              path="/:category"
-              element={<Home searchTerm={searchTerm} category={category} />}
-            />
+            <Route path="/:category" element={<Home category={category} />} />
             <Route path="/movie/:movieId" element={<Movie />} />
+            <Route path="/genre/:genreName" element={<Home genre={genre} />} />
           </Routes>
         </div>
       </div>
