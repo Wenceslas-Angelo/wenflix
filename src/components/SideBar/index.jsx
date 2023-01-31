@@ -19,7 +19,9 @@ function SideBar({ setCategory }) {
         <ul>
           {categories.map((category) => (
             <li key={category.id} onClick={() => setCategory(category.name)}>
-              <Link to={`/${category.name}`}>
+              <Link
+                to={category.name === 'Popular' ? '/' : `/${category.name}`}
+              >
                 <span>{category.icon}</span>
                 <span>{category.name}</span>
               </Link>

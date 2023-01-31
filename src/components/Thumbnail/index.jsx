@@ -7,7 +7,7 @@ function Thumbnail({ image, movieId, clickable }) {
   return (
     <div className="thumbnail">
       {clickable ? (
-        <Link to={`/${movieId}`}>
+        <Link to={`/movie/${movieId}`}>
           <img src={image} alt="movie-thumb" />
         </Link>
       ) : (

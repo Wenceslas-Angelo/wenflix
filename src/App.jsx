@@ -17,18 +17,15 @@ function App() {
         <Header setSearchTerm={setSearchTerm} />
         <div className="pages">
           <Routes>
-            <Route path="/">
-              <Route
-                index
-                element={<Home searchTerm={searchTerm} category="Popular" />}
-              />
-              <Route
-                path="/:category"
-                element={<Home searchTerm={searchTerm} category={category} />}
-              />
-            </Route>
-
-            <Route path="/:movieId" element={<Movie />} />
+            <Route
+              path="/"
+              element={<Home searchTerm={searchTerm} category="Popular" />}
+            />
+            <Route
+              path="/:category"
+              element={<Home searchTerm={searchTerm} category={category} />}
+            />
+            <Route path="/movie/:movieId" element={<Movie />} />
           </Routes>
         </div>
       </div>
