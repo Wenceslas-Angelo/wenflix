@@ -5,7 +5,7 @@ import categories from '../../utils/categories';
 import genres from '../../utils/genres';
 import './index.scss';
 
-function SideBar({ setCategory }) {
+function SideBar({ setCategory, setGenre }) {
   return (
     <div className="sidebar">
       <div className="sidebar__logo">
@@ -32,7 +32,10 @@ function SideBar({ setCategory }) {
         <h2>Genres</h2>
         <ul>
           {genres.map((genre) => (
-            <li key={genre.id}>
+            <li
+              key={genre.id}
+              onClick={() => setGenre({ id: genre.id, name: genre.name })}
+            >
               <Link to={`/genre/${genre.name}`}>
                 <span>{genre.icon}</span>
                 <span>{genre.name}</span>
@@ -47,6 +50,7 @@ function SideBar({ setCategory }) {
 
 SideBar.propTypes = {
   setCategory: PropTypes.func,
+  setGenre: PropTypes.func,
 };
 
 export default SideBar;

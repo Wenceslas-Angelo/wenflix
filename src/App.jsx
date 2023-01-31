@@ -5,14 +5,16 @@ import Header from './components/Header';
 import SideBar from './components/SideBar';
 import Home from './pages/Home';
 import Movie from './pages/Movie';
+import Genre from './pages/Genre';
 
 function App() {
   const [searchTerm, setSearchTerm] = useState('');
   const [category, setCategory] = useState('Popular');
+  const [genre, setGenre] = useState({});
 
   return (
     <div className="app">
-      <SideBar setCategory={setCategory} />
+      <SideBar setCategory={setCategory} setGenre={setGenre} />
       <div className="container">
         <Header setSearchTerm={setSearchTerm} />
         <div className="pages">
@@ -29,6 +31,8 @@ function App() {
             </Route>
 
             <Route path="/:movieId" element={<Movie />} />
+
+            <Route path="/genre/:genreName" element={<Genre value={genre} />} />
           </Routes>
         </div>
       </div>

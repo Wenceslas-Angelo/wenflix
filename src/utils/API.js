@@ -3,6 +3,7 @@ import {
   POPULAR_BASE_URL,
   UPCOMING_BASE_URL,
   TOP_RATED_BASE_URL,
+  GENRE_BASE_URL,
   API_URL,
   API_KEY,
   REQUEST_TOKEN_URL,
@@ -50,6 +51,14 @@ const apiSettings = {
     const endpoint = searchTerm
       ? `${SEARCH_BASE_URL}${searchTerm}&page=${page}`
       : `${TOP_RATED_BASE_URL}&page=${page}`;
+    const data = await fetch(endpoint);
+    const dataJson = await data.json();
+    return dataJson;
+  },
+  fetchGenres: async (searchTerm, page, genre) => {
+    const endpoint = searchTerm
+      ? `${SEARCH_BASE_URL}${searchTerm}&page=${page}`
+      : `${GENRE_BASE_URL}${genre}&page=${page}`;
     const data = await fetch(endpoint);
     const dataJson = await data.json();
     return dataJson;

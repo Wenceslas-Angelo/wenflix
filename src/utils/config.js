@@ -8,6 +8,8 @@ const SEARCH_BASE_URL = `${API_URL}search/movie?api_key=${API_KEY}&language=en-U
 const POPULAR_BASE_URL = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US`;
 const UPCOMING_BASE_URL = `${API_URL}movie/upcoming?api_key=${API_KEY}&language=en-US`;
 const TOP_RATED_BASE_URL = `${API_URL}movie/top_rated?api_key=${API_KEY}&language=en-US`;
+const GENRE_BASE_URL = `${API_URL}discover/movie?api_key=${API_KEY}&with_genres=`;
+
 // For login and voting
 const REQUEST_TOKEN_URL = `${API_URL}authentication/token/new?api_key=${API_KEY}`;
 const LOGIN_URL = `${API_URL}authentication/token/validate_with_login?api_key=${API_KEY}`;
@@ -24,6 +26,7 @@ export {
   POPULAR_BASE_URL,
   UPCOMING_BASE_URL,
   TOP_RATED_BASE_URL,
+  GENRE_BASE_URL,
   API_URL,
   API_KEY,
   IMAGE_BASE_URL,
