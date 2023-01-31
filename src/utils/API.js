@@ -1,6 +1,8 @@
 import {
   SEARCH_BASE_URL,
   POPULAR_BASE_URL,
+  UPCOMING_BASE_URL,
+  TOP_RATED_BASE_URL,
   API_URL,
   API_KEY,
   REQUEST_TOKEN_URL,
@@ -36,8 +38,18 @@ const apiSettings = {
     const dataJson = await data.json();
     return dataJson;
   },
-  fetchGenre: async () => {
-    const endpoint = `${API_URL}genre/movie/list?api_key=${API_KEY}&language=en-US`;
+  fetchUpcoming: async (searchTerm, page) => {
+    const endpoint = searchTerm
+      ? `${SEARCH_BASE_URL}${searchTerm}&page=${page}`
+      : `${UPCOMING_BASE_URL}&page=${page}`;
+    const data = await fetch(endpoint);
+    const dataJson = await data.json();
+    return dataJson;
+  },
+  fetchTopRated: async (searchTerm, page) => {
+    const endpoint = searchTerm
+      ? `${SEARCH_BASE_URL}${searchTerm}&page=${page}`
+      : `${TOP_RATED_BASE_URL}&page=${page}`;
     const data = await fetch(endpoint);
     const dataJson = await data.json();
     return dataJson;

@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import categories from '../../utils/categories';
 import genres from '../../utils/genres';
 import './index.scss';
 
-function SideBar() {
+function SideBar({ setCategory }) {
   return (
     <div className="sidebar">
       <div className="sidebar__logo">
@@ -17,14 +18,8 @@ function SideBar() {
         <h2>Categories</h2>
         <ul>
           {categories.map((category) => (
-            <li key={category.id}>
-              <Link
-                to={
-                  category.name === 'Popular'
-                    ? '/'
-                    : `/category/${category.name}`
-                }
-              >
+            <li key={category.id} onClick={() => setCategory(category.name)}>
+              <Link to={`/${category.name}`}>
                 <span>{category.icon}</span>
                 <span>{category.name}</span>
               </Link>
@@ -49,5 +44,9 @@ function SideBar() {
     </div>
   );
 }
+
+SideBar.propTypes = {
+  setCategory: PropTypes.func,
+};
 
 export default SideBar;
