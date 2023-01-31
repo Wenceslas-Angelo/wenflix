@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Banner from '../components/Banner';
 import Grid from '../components/Grid';
@@ -10,11 +11,11 @@ import useHomeFetch from '../hooks/useHomeFetch';
 import noImage from '../images/no_image.jpg';
 import Button from '../components/Button';
 
-function Home() {
-  const { state, loading, setIsLoadingMore } = useHomeFetch();
+function Home({ searchTerm }) {
+  const { state, loading, setIsLoadingMore } = useHomeFetch(searchTerm);
   return (
     <div className="Home">
-      {state.results[0] ? (
+      {!searchTerm && state.results[0] ? (
         <Banner
           image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${state.results[0].backdrop_path}`}
           title={state.results[0].original_title}
@@ -22,7 +23,7 @@ function Home() {
         />
       ) : null}
 
-      <Grid header={'Popular Movies'}>
+      <Grid header={searchTerm ? 'Search Result' : 'Popular Movies'}>
         {state.results.map((movie) => (
           <Thumbnail
             key={movie.id}
@@ -45,5 +46,13 @@ function Home() {
     </div>
   );
 }
+
+Home.defaultProps = {
+  searchTerm: '',
+};
+
+Home.propTypes = {
+  searchTerm: PropTypes.string,
+};
 
 export default Home;
