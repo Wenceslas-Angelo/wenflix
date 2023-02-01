@@ -11,6 +11,7 @@ function App() {
   const [category, setCategory] = useState('Popular');
   const [genre, setGenre] = useState({});
   const [showSearch, setShowSearch] = useState(true);
+  const [showSideBar, setShowSideBar] = useState(true);
 
   return (
     <div className="app">
@@ -18,9 +19,15 @@ function App() {
         setCategory={setCategory}
         setGenre={setGenre}
         setShowSearch={setShowSearch}
+        showSideBar={showSideBar}
       />
-      <div className="container">
-        <Header setSearchTerm={setSearchTerm} showSearch={showSearch} />
+      <div className={showSideBar ? 'container sidebar-open' : 'container'}>
+        <Header
+          setSearchTerm={setSearchTerm}
+          showSearch={showSearch}
+          setShowSideBar={setShowSideBar}
+          showSideBar={showSideBar}
+        />
         <div className="pages">
           <Routes>
             <Route

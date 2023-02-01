@@ -57,6 +57,14 @@ const apiSettings = {
     const dataJson = await data.json();
     return dataJson;
   },
+  fetchGenres: async (searchTerm, page, genre) => {
+    const endpoint = searchTerm
+      ? `${SEARCH_BASE_URL}${searchTerm}&page=${page}`
+      : `${GENRE_BASE_URL}${genre}&page=${page}`;
+    const data = await fetch(endpoint);
+    const dataJson = await data.json();
+    return dataJson;
+  },
   // Bonus material below for login
   getRequestToken: async () => {
     const reqToken = await (await fetch(REQUEST_TOKEN_URL)).json();

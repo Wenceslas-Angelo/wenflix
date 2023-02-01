@@ -5,12 +5,12 @@ import categories from '../../utils/categories';
 import genres from '../../utils/genres';
 import './index.scss';
 
-function SideBar({ setCategory, setGenre, setShowSearch }) {
+function SideBar({ setCategory, setGenre, showSideBar, setShowSearch }) {
   return (
-    <div className="sidebar">
+    <div className={showSideBar ? 'sidebar open' : 'sidebar'}>
       <div className="sidebar__logo">
         <Link to="/">
-          Netflix<span>.</span>
+          Wenflix<span>.</span>
         </Link>
       </div>
 
@@ -67,6 +67,7 @@ SideBar.propTypes = {
   setCategory: PropTypes.func,
   setGenre: PropTypes.func,
   setShowSearch: PropTypes.func,
+  showSideBar: PropTypes.bool,
 };
 
 export default SideBar;

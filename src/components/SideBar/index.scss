@@ -2,10 +2,12 @@
   position: fixed;
   top: 0;
   width: 20%;
+  left: -20%;
   height: 100vh;
   border-right: 1px solid #4e4e4c4d;
   overflow: auto;
   padding-left: 15px;
+  transition: left 0.3s linear;
   &::-webkit-scrollbar {
     width: 3px;
   }
@@ -24,9 +26,9 @@
   }
 
   &__logo {
-    padding: 20px;
+    padding: 20px 10px;
     a {
-      font-size: 40px;
+      font-size: 35px;
       color: #fff;
       font-weight: bolder;
       letter-spacing: 5px;
@@ -62,5 +64,9 @@
         }
       }
     }
+  }
+
+  &.open {
+    left: 0%;
   }
 }
