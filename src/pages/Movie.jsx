@@ -7,14 +7,16 @@ import Spinner from '../components/Spinner';
 import useMovieFetch from '../hooks/useMovieFetch';
 import Grid from '../components/Grid';
 import Actors from '../components/Actors';
+import Error from '../components/Error';
 
 import NoImage from '../images/no_image.jpg';
 import { IMAGE_BASE_URL, POSTER_SIZE } from '../utils/config';
 
 function Movie() {
   const { movieId } = useParams();
-  const { state: movie, loading } = useMovieFetch(movieId);
+  const { state: movie, loading, error } = useMovieFetch(movieId);
   if (loading) return <Spinner />;
+  if (error) return <Error />;
   return (
     <div>
       {movie.directors ? (

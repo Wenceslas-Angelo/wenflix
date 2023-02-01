@@ -10,13 +10,16 @@ import { BACKDROP_SIZE, IMAGE_BASE_URL, POSTER_SIZE } from '../utils/config';
 import useHomeFetch from '../hooks/useHomeFetch';
 import noImage from '../images/no_image.jpg';
 import Button from '../components/Button';
+import Error from '../components/Error';
 
 function Home({ searchTerm, category, genre, setShowSearch }) {
-  const { state, loading, setIsLoadingMore } = useHomeFetch(
+  const { state, loading, setIsLoadingMore, error } = useHomeFetch(
     searchTerm,
     category,
     genre
   );
+
+  if (error) return <Error />;
 
   return (
     <div className="Home">
@@ -70,6 +73,7 @@ Home.propTypes = {
   category: PropTypes.string,
   genre: PropTypes.object,
   setShowSearch: PropTypes.func,
+  setCategory: PropTypes.func,
 };
 
 export default Home;

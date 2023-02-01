@@ -1,5 +1,14 @@
 .app {
-  margin-top: 100px;
+  &#dark {
+    background-color: #181818;
+    color: #eef2f2;
+  }
+  &#light {
+    background-color: #eef2f2;
+    color: #181818;
+  }
+  min-height: 100vh;
+  padding-top: 100px;
   .container {
     margin-left: 0%;
     position: relative;

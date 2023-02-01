@@ -1,10 +1,60 @@
+#dark .sidebar {
+  border-right: 1px solid #4e4e4c4d;
+
+  &::-webkit-scrollbar-track {
+    background: #09090a;
+  }
+
+  &__logo a {
+    color: #fff;
+  }
+
+  &__categories,
+  &__genres {
+    h2 {
+      color: #fff;
+    }
+    a {
+      color: #a3a696;
+      &:hover {
+        color: white;
+      }
+    }
+  }
+}
+
+#light .sidebar {
+  border-right: 1px solid #e0e0e04d;
+
+  &::-webkit-scrollbar-track {
+    background: #cdcdcf;
+  }
+
+  &__logo a {
+    color: #181818;
+  }
+
+  &__categories,
+  &__genres {
+    h2 {
+      color: #181818;
+    }
+    a {
+      color: #353535;
+      &:hover {
+        color: #181818;
+      }
+    }
+  }
+}
+
 .sidebar {
   position: fixed;
   top: 0;
   width: 20%;
   left: -20%;
   height: 100vh;
-  border-right: 1px solid #4e4e4c4d;
+  z-index: 1000;
   overflow-y: auto;
   overflow-x: hidden;
   padding-left: 15px;
@@ -12,10 +62,6 @@
 
   &::-webkit-scrollbar {
     width: 3px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: #09090a;
   }
 
   &::-webkit-scrollbar-thumb {
@@ -31,7 +77,6 @@
     padding: 20px 10px;
     a {
       font-size: 35px;
-      color: #fff;
       font-weight: bolder;
       letter-spacing: 5px;
       span {
@@ -43,9 +88,6 @@
   &__categories,
   &__genres {
     padding: 10px 0 0 10px;
-    h2 {
-      color: #fff;
-    }
 
     ul {
       list-style: none;
@@ -55,11 +97,6 @@
         transition: all 0.3s linear;
         cursor: pointer;
         a {
-          color: #a3a696;
-          &:hover {
-            color: white;
-          }
-
           span {
             margin-left: 10px;
           }
