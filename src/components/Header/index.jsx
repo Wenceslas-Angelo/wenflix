@@ -1,6 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FaChevronLeft, FaChevronRight, FaUserCircle } from 'react-icons/fa';
+import {
+  FaChevronLeft,
+  FaChevronRight,
+  FaUserCircle,
+  FaBars,
+} from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import Search from '../Search';
 import './index.scss';
@@ -22,6 +27,14 @@ function Header({ setSearchTerm, showSearch, setShowSideBar, showSideBar }) {
           <FaChevronRight />
         </span>
       </div>
+
+      <div
+        className="bars-icon"
+        onClick={() => setShowSideBar((prev) => (prev ? false : true))}
+      >
+        <FaBars />
+      </div>
+
       {showSearch && <Search setSearchTerm={setSearchTerm} />}
       <div className="header__user">
         <FaUserCircle color="#fff" fontSize={20} />

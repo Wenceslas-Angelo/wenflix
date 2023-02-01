@@ -5,9 +5,11 @@
   left: -20%;
   height: 100vh;
   border-right: 1px solid #4e4e4c4d;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   padding-left: 15px;
   transition: left 0.3s linear;
+
   &::-webkit-scrollbar {
     width: 3px;
   }
@@ -68,5 +70,16 @@
 
   &.open {
     left: 0%;
+  }
+
+  @media screen and (max-width: 1024px) {
+    left: -100%;
+    top: 80px;
+    width: 100%;
+    background-color: #09090a;
+    z-index: 100;
+    &.open {
+      right: 0;
+    }
   }
 }
