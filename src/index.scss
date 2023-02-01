@@ -1,12 +1,25 @@
-$dark-back: #09090a;
-$white: #ffffff;
-$w: #3f4e50;
-$e: #a3a696;
-$d: #5a1705;
-$p: #9f3006;
-$backgroundDark: #181818;
-$backgroundLight: #eef2f2;
-$secondary: #7b818a;
+// $dark-back: #09090a;
+// $white: #ffffff;
+// $w: #3f4e50;
+// $e: #a3a696;
+// $d: #5a1705;
+// $p: #9f3006;
+// $backgroundDark: #181818;
+// $backgroundLight: #eef2f2;
+// $secondary: #7b818a;
+
+@font-face {
+  font-family: 'Burton';
+  src: url('assets/fonts/Burtons.otf');
+}
+@font-face {
+  font-family: 'CoolveticaRg';
+  src: url('assets/fonts/CoolveticaRg-Regular.woff2');
+}
+@font-face {
+  font-family: 'HelveticaNeu';
+  src: url('assets/fonts/helvetica-neu.ttf');
+}
 
 * {
   padding: 0;
@@ -22,4 +35,12 @@ body {
 
 a {
   text-decoration: none;
+}
+
+h1 {
+  font-family: 'Burton', sans-serif;
+}
+
+h2 {
+  font-family: 'CoolveticaRg', sans-serif;
 }

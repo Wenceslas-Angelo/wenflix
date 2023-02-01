@@ -79,6 +79,7 @@
       font-size: 35px;
       font-weight: bolder;
       letter-spacing: 5px;
+      font-family: 'Burton', sans-serif;
       span {
         color: #9f3006;
       }
@@ -88,7 +89,9 @@
   &__categories,
   &__genres {
     padding: 10px 0 0 10px;
-
+    h2 {
+      letter-spacing: 5px;
+    }
     ul {
       list-style: none;
       li {

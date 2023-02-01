@@ -8,7 +8,7 @@ import Spinner from '../components/Spinner';
 
 import { BACKDROP_SIZE, IMAGE_BASE_URL, POSTER_SIZE } from '../utils/config';
 import useHomeFetch from '../hooks/useHomeFetch';
-import noImage from '../images/no_image.jpg';
+import noImage from '../assets/images/no_image.jpg';
 import Button from '../components/Button';
 import Error from '../components/Error';
 

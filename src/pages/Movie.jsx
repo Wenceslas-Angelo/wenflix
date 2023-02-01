@@ -9,7 +9,7 @@ import Grid from '../components/Grid';
 import Actors from '../components/Actors';
 import Error from '../components/Error';
 
-import NoImage from '../images/no_image.jpg';
+import NoImage from '../assets/images/no_image.jpg';
 import { IMAGE_BASE_URL, POSTER_SIZE } from '../utils/config';
 
 function Movie() {
