@@ -11,24 +11,32 @@ function App() {
   const [searchTerm, setSearchTerm] = useState('');
   const [category, setCategory] = useState('Popular');
   const [genre, setGenre] = useState({});
+  const [showSideBar, setShowSideBar] = useState(true);
 
   return (
     <div className="app">
-      <SideBar setCategory={setCategory} setGenre={setGenre} />
-      <div className="container">
-        <Header setSearchTerm={setSearchTerm} />
-        <div className="pages">
+      <SideBar
+        setCategory={setCategory}
+        setGenre={setGenre}
+        showSideBar={showSideBar}
+      />
+      <div className={showSideBar ? 'container sidebar-open' : 'container'}>
+        <Header
+          setSearchTerm={setSearchTerm}
+          setShowSideBar={setShowSideBar}
+          showSideBar={showSideBar}
+        />
+        <div className="page">
           <Routes>
-            <Route path="/">
-              <Route
-                index
-                element={<Home searchTerm={searchTerm} category="Popular" />}
-              />
-              <Route
-                path="/:category"
-                element={<Home searchTerm={searchTerm} category={category} />}
-              />
-            </Route>
+            <Route
+              path="/"
+              element={<Home searchTerm={searchTerm} category="Popular" />}
+            />
+
+            <Route
+              path="/:category"
+              element={<Home searchTerm={searchTerm} category={category} />}
+            />
 
             <Route path="/:movieId" element={<Movie />} />
 

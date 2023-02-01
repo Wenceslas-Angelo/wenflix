@@ -5,12 +5,22 @@ import { Link } from 'react-router-dom';
 import Search from '../Search';
 import './index.scss';
 
-function Header({ setSearchTerm }) {
+function Header({ setSearchTerm, setShowSideBar, showSideBar }) {
   return (
-    <header className="header">
+    <header className={showSideBar ? 'header sidebar-open' : 'header'}>
       <div className="header__sidebar-action">
-        <FaChevronLeft color="#fff" fontSize={20} />
-        <FaChevronRight color="#a3a696" fontSize={20} />
+        <span
+          className={showSideBar ? 'action-close active' : 'action-close'}
+          onClick={() => setShowSideBar(false)}
+        >
+          <FaChevronLeft />
+        </span>
+        <span
+          className={!showSideBar ? 'action-open active' : 'action-open'}
+          onClick={() => setShowSideBar(true)}
+        >
+          <FaChevronRight />
+        </span>
       </div>
       <Search setSearchTerm={setSearchTerm} />
       <div className="header__user">
@@ -23,6 +33,8 @@ function Header({ setSearchTerm }) {
 
 Header.propTypes = {
   setSearchTerm: PropTypes.func.isRequired,
+  setShowSideBar: PropTypes.func.isRequired,
+  showSideBar: PropTypes.bool,
 };
 
 export default Header;
