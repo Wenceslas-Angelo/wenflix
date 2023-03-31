@@ -35,18 +35,17 @@ function Movie() {
             revenue={movie.revenue}
           />
           <Grid header="Actors">
-            {movie.actors.map((actor) => (
-              <Actors
-                key={actor.credit_id}
-                name={actor.name}
-                character={actor.character}
-                imageUrl={
-                  actor.profile_path
-                    ? `${IMAGE_BASE_URL}${POSTER_SIZE}${actor.profile_path}`
-                    : NoImage
-                }
-              />
-            ))}
+            {movie.actors.map(
+              (actor) =>
+                actor.profile_path && (
+                  <Actors
+                    key={actor.credit_id}
+                    name={actor.name}
+                    character={actor.character}
+                    imageUrl={`${IMAGE_BASE_URL}${POSTER_SIZE}${actor.profile_path}`}
+                  />
+                )
+            )}
           </Grid>
         </>
       ) : (
