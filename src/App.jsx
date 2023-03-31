@@ -51,7 +51,10 @@ function App() {
                 path="/:categoryName"
                 element={<Home category={category} />}
               />
-              <Route path="/movie/:movieId" element={<Movie />} />
+              <Route
+                path="/movie/:movieId"
+                element={<Movie setShowSearch={setShowSearch} />}
+              />
               <Route
                 path="/genre/:genreName"
                 element={<Home genre={genre} />}

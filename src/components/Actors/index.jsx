@@ -1,21 +1,50 @@
 import React from 'react';
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+import '@splidejs/react-splide/css';
 import PropTypes from 'prop-types';
-import ActorsStyles from './index.styles';
+import Actor from '../Actor';
+import { IMAGE_BASE_URL, POSTER_SIZE } from '../../utils/config';
 
-function Actors({ name, character, imageUrl }) {
+function Actors({ actors }) {
   return (
-    <ActorsStyles>
-      <img src={imageUrl} alt="actor-thumb" />
-      <h3>{name}</h3>
-      <p>{character}</p>
-    </ActorsStyles>
+    <div style={{ margin: '20px' }}>
+      <h1 style={{ padding: '20px' }}>Actors</h1>
+      <Splide
+        options={{
+          perMove: 1,
+          type: 'loop',
+          perPage: 5,
+          breakpoints: {
+            1024: {
+              perPage: 4,
+            },
+          },
+          width: `${100}%`,
+          gap: '1rem',
+          autoplay: true,
+          interval: 2000,
+          pauseOnHover: true,
+        }}
+      >
+        {actors.map(
+          (actor) =>
+            actor.profile_path && (
+              <SplideSlide key={actor.credit_id}>
+                <Actor
+                  name={actor.name}
+                  character={actor.character}
+                  imageUrl={`${IMAGE_BASE_URL}${POSTER_SIZE}${actor.profile_path}`}
+                />
+              </SplideSlide>
+            )
+        )}
+      </Splide>
+    </div>
   );
 }
 
 Actors.propTypes = {
-  name: PropTypes.string.isRequired,
-  character: PropTypes.string.isRequired,
-  imageUrl: PropTypes.string.isRequired,
+  actors: PropTypes.array.isRequired,
 };
 
 export default Actors;

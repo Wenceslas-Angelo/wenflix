@@ -65,6 +65,12 @@ const apiSettings = {
     const dataJson = await data.json();
     return dataJson;
   },
+  fetchSimilarMovie: async (page, movieId) => {
+    const endpoint = `${API_URL}movie/${movieId}/similar?api_key=${API_KEY}&language=en-US&page=${page}`;
+    const data = await fetch(endpoint);
+    const dataJson = await data.json();
+    return dataJson;
+  },
   // Bonus material below for login
   getRequestToken: async () => {
     const reqToken = await (await fetch(REQUEST_TOKEN_URL)).json();
