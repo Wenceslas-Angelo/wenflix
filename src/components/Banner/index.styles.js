@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const BannerStyles = styled.div`
   margin: 20px;
-  margin-top: 50px;
+  margin-top: 30px;
   border-radius: 10px;
   overflow: hidden;
   background: linear-gradient(
