@@ -51,7 +51,7 @@ function MovieInfo({
 }
 
 MovieInfo.propTypes = {
-  backdropPath: PropTypes.string.isRequired,
+  backdropPath: PropTypes.string,
   posterPath: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   overview: PropTypes.string.isRequired,

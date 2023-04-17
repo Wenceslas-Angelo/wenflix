@@ -12,7 +12,7 @@ import noImage from '../assets/images/no_image.jpg';
 import Button from '../components/Button';
 import Error from '../components/Error';
 
-function Home({ searchTerm, category, genre, setShowSearch }) {
+function Home({ searchTerm, category, genre }) {
   const { state, loading, setIsLoadingMore, error } = useHomeFetch(
     searchTerm,
     category,
@@ -50,7 +50,6 @@ function Home({ searchTerm, category, genre, setShowSearch }) {
             }
             movieId={movie.id}
             clickable
-            setShowSearch={setShowSearch}
           />
         ))}
       </Grid>
@@ -72,7 +71,6 @@ Home.propTypes = {
   searchTerm: PropTypes.string,
   category: PropTypes.string,
   genre: PropTypes.object,
-  setShowSearch: PropTypes.func,
   setCategory: PropTypes.func,
 };
 

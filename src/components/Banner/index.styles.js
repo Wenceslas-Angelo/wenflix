@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
 const BannerStyles = styled.div`
-  margin: 20px;
-  margin-top: 30px;
+  margin: 30px 20px 20px 20px;
   border-radius: 10px;
   overflow: hidden;
   background: linear-gradient(
@@ -44,6 +43,10 @@ const BannerStyles = styled.div`
       font-size: 20px;
       color: #a3a696;
     }
+  }
+
+  @media screen and (max-width: 600px) {
+    margin: 80px 10px 10px 10px;
   }
 `;
 

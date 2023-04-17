@@ -1,5 +1,8 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import { useLocation } from 'react-router-dom';
+import genres from '../../utils/genres';
+import categories from '../../utils/categories';
 import {
   FaChevronLeft,
   FaChevronRight,
@@ -11,8 +14,21 @@ import Search from '../Search';
 import { ThemeContext } from '../../contexts/themeContext';
 import './index.scss';
 
-function Header({ setSearchTerm, showSearch, setShowSideBar, showSideBar }) {
+function Header({ setSearchTerm, setShowSideBar, showSideBar }) {
   const { theme, toggleTheme } = useContext(ThemeContext);
+  const location = useLocation();
+  let showSearch = false;
+
+  categories.forEach((category) =>
+    location.pathname === category.path ? (showSearch = true) : null
+  );
+
+  if (!showSearch) {
+    genres.forEach((genre) =>
+      location.pathname === `/genre/${genre.name}` ? (showSearch = true) : null
+    );
+  }
+
   return (
     <header className={showSideBar ? 'header sidebar-open' : 'header'}>
       <div className="header__sidebar-action">
@@ -37,7 +53,9 @@ function Header({ setSearchTerm, showSearch, setShowSideBar, showSideBar }) {
         <FaBars />
       </div>
 
-      {showSearch && <Search setSearchTerm={setSearchTerm} />}
+      {showSearch ? (
+        <Search setShowSideBar={setShowSideBar} setSearchTerm={setSearchTerm} />
+      ) : null}
 
       <div className="switch-theme" onClick={() => toggleTheme()}>
         <input type="checkbox" className="checkbox" />
@@ -53,7 +71,6 @@ function Header({ setSearchTerm, showSearch, setShowSideBar, showSideBar }) {
 
 Header.propTypes = {
   setSearchTerm: PropTypes.func.isRequired,
-  showSearch: PropTypes.bool,
   setShowSideBar: PropTypes.func.isRequired,
   showSideBar: PropTypes.bool,
 };

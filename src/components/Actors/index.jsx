@@ -18,6 +18,15 @@ function Actors({ actors }) {
             1024: {
               perPage: 4,
             },
+            768: {
+              perPage: 3,
+            },
+            600: {
+              perPage: 2,
+            },
+            375: {
+              perPage: 1,
+            },
           },
           width: `${100}%`,
           gap: '1rem',

@@ -1,6 +1,6 @@
 #dark .sidebar {
   border-right: 1px solid #4e4e4c4d;
-
+  background-color: #181818;
   &::-webkit-scrollbar-track {
     background: #09090a;
   }
@@ -25,7 +25,7 @@
 
 #light .sidebar {
   border-right: 1px solid #e0e0e04d;
-
+  background-color: #eef2f2;
   &::-webkit-scrollbar-track {
     background: #cdcdcf;
   }
@@ -49,6 +49,9 @@
 }
 
 .sidebar {
+  @media screen and (max-width: 600px) {
+    padding: 50px 0 80px 0;
+  }
   position: fixed;
   top: 0;
   width: 20%;
@@ -96,13 +99,19 @@
       list-style: none;
       li {
         font-size: 20px;
-        margin: 15px 0;
+        margin: 15px 5px 15px 0;
+        padding: 5px;
         transition: all 0.3s linear;
+        border-radius: 5px;
         cursor: pointer;
         a {
           span {
             margin-left: 10px;
           }
+        }
+
+        &:hover {
+          background-color: rgba(87, 87, 87, 0.5);
         }
       }
     }
@@ -113,10 +122,10 @@
   }
 
   @media screen and (max-width: 1024px) {
+    padding: 80px 0;
     left: -100%;
     top: 80px;
     width: 100%;
-    background-color: #09090a;
     z-index: 100;
     &.open {
       right: 0;

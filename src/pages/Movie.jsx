@@ -13,7 +13,7 @@ import NoImage from '../assets/images/no_image.jpg';
 import Actors from '../components/Actors';
 import noImage from '../assets/images/no_image.jpg';
 
-function Movie({ setShowSearch }) {
+function Movie() {
   const { movieId } = useParams();
   const { state: movie, loading, error, similar } = useMovieFetch(movieId);
   if (loading) return <Spinner />;
@@ -53,7 +53,6 @@ function Movie({ setShowSearch }) {
                   }
                   movieId={movie.id}
                   clickable
-                  setShowSearch={setShowSearch}
                 />
               ))}
             </Grid>

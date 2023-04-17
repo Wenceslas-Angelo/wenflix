@@ -20,7 +20,10 @@ const MovieInfoStyles = styled.div`
   }
 
   .content {
-    display: flex;
+    @media screen and (min-width: 768px) {
+      display: flex;
+    }
+
     margin: 0 auto;
     background-color: rgba(0, 0, 0, 0.7);
     border-radius: 20px;

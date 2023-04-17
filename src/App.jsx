@@ -12,9 +12,8 @@ function App() {
   const [searchTerm, setSearchTerm] = useState('');
   const [category, setCategory] = useState('Popular');
   const [genre, setGenre] = useState({});
-  const [showSearch, setShowSearch] = useState(true);
   const [showSideBar, setShowSideBar] = useState(true);
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState('dark');
 
   const toggleTheme = () =>
     setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
@@ -25,13 +24,11 @@ function App() {
         <SideBar
           setCategory={setCategory}
           setGenre={setGenre}
-          setShowSearch={setShowSearch}
           showSideBar={showSideBar}
         />
         <div className={showSideBar ? 'container sidebar-open' : 'container'}>
           <Header
             setSearchTerm={setSearchTerm}
-            showSearch={showSearch}
             setShowSideBar={setShowSideBar}
             showSideBar={showSideBar}
           />
@@ -39,22 +36,13 @@ function App() {
             <Routes>
               <Route
                 path="/"
-                element={
-                  <Home
-                    searchTerm={searchTerm}
-                    category="Popular"
-                    setShowSearch={setShowSearch}
-                  />
-                }
+                element={<Home searchTerm={searchTerm} category="Popular" />}
               />
               <Route
                 path="/:categoryName"
                 element={<Home category={category} />}
               />
-              <Route
-                path="/movie/:movieId"
-                element={<Movie setShowSearch={setShowSearch} />}
-              />
+              <Route path="/movie/:movieId" element={<Movie />} />
               <Route
                 path="/genre/:genreName"
                 element={<Home genre={genre} />}

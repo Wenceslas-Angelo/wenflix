@@ -2,11 +2,17 @@
   input {
     color: white;
   }
+  @media screen and (max-width: 600px) {
+    background-color: #181818;
+  }
 }
 
 #light .search {
   input {
     color: #181818;
+  }
+  @media screen and (max-width: 600px) {
+    background-color: #eef2f2;
   }
 }
 
@@ -30,5 +36,14 @@
     background-color: inherit;
     outline: none;
     font-size: 20px;
+  }
+
+  @media screen and (max-width: 600px) {
+    position: absolute;
+    padding: 10px 5px;
+    width: 100%;
+    top: 75px;
+    z-index: 10;
+    left: 0;
   }
 }

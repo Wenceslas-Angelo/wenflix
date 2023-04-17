@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './index.scss';
 
-function Thumbnail({ image, movieId, clickable, setShowSearch }) {
+function Thumbnail({ image, movieId, clickable }) {
   return (
-    <div className="thumbnail" onClick={() => setShowSearch(false)}>
+    <div className="thumbnail">
       {clickable ? (
         <Link to={`/movie/${movieId}`}>
           <img src={image} alt="movie-thumb" />
@@ -25,7 +25,6 @@ Thumbnail.propTypes = {
   image: PropTypes.string.isRequired,
   movieId: PropTypes.number,
   clickable: PropTypes.bool.isRequired,
-  setShowSearch: PropTypes.func,
 };
 
 export default Thumbnail;
