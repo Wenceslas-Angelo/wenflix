@@ -26,30 +26,30 @@ function App() {
           setGenre={setGenre}
           showSideBar={showSideBar}
         />
+
+        <Header
+          setSearchTerm={setSearchTerm}
+          setShowSideBar={setShowSideBar}
+          showSideBar={showSideBar}
+          setCategory={setCategory}
+          setGenre={setGenre}
+        />
         <div className={showSideBar ? 'container sidebar-open' : 'container'}>
-          <Header
-            setSearchTerm={setSearchTerm}
-            setShowSideBar={setShowSideBar}
-            showSideBar={showSideBar}
-          />
           <div className="pages">
             <Routes>
               <Route
                 path="/"
-                element={<Home searchTerm={searchTerm} category="Popular" />}
-              />
-
-              <Route
-                path="/:categoryName"
-                element={<Home category={category} />}
+                element={
+                  <Home
+                    searchTerm={searchTerm}
+                    genre={genre}
+                    category={category}
+                  />
+                }
               />
 
               <Route path="/movie/:movieId" element={<Movie />} />
 
-              <Route
-                path="/genre/:genreName"
-                element={<Home genre={genre} />}
-              />
               <Route path="*" element={<Error />} />
             </Routes>
           </div>

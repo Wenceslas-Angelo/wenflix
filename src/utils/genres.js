@@ -108,14 +108,15 @@ const genres = [
     icon: <GiHalfDead />,
   },
   {
-    id: 10752,
-    name: 'War',
-    icon: <GiWarAxe />,
-  },
-  {
     id: 37,
     name: 'Western',
     icon: <GiWesternHat />,
+  },
+
+  {
+    id: 10752,
+    name: 'War',
+    icon: <GiWarAxe />,
   },
 ];
 

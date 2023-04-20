@@ -25,7 +25,7 @@ const useHomeFetch = (searchTerm, category, genre) => {
         movies = await API.fetchUpcoming(page);
       } else if (category === 'Top rated') {
         movies = await API.fetchTopRated(page);
-      } else if (genre) {
+      } else if (genre.id) {
         movies = await API.fetchGenre(page, genre.id);
       }
       setState((prev) => ({

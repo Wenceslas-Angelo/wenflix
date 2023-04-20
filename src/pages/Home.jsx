@@ -33,7 +33,7 @@ function Home({ searchTerm, category, genre }) {
 
       <Grid
         header={
-          genre
+          genre.id
             ? `${genre.name} Movies`
             : searchTerm
             ? 'Search Result'

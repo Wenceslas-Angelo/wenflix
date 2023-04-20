@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { FaSearch } from 'react-icons/fa';
 import './index.scss';
 
-function Search({ setSearchTerm, setShowSideBar }) {
+function Search({ setSearchTerm }) {
   const [query, setQuery] = useState('');
   const initial = useRef(true);
 
@@ -28,7 +28,6 @@ function Search({ setSearchTerm, setShowSideBar }) {
         placeholder="Search..."
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        onFocus={() => setShowSideBar(false)}
       />
     </form>
   );
@@ -36,7 +35,6 @@ function Search({ setSearchTerm, setShowSideBar }) {
 
 Search.propTypes = {
   setSearchTerm: PropTypes.func,
-  setShowSideBar: PropTypes.func,
 };
 
 export default Search;
