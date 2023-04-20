@@ -38,11 +38,14 @@ function App() {
                 path="/"
                 element={<Home searchTerm={searchTerm} category="Popular" />}
               />
+
               <Route
                 path="/:categoryName"
                 element={<Home category={category} />}
               />
+
               <Route path="/movie/:movieId" element={<Movie />} />
+
               <Route
                 path="/genre/:genreName"
                 element={<Home genre={genre} />}
