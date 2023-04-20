@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import genres from '../../utils/genres';
 import categories from '../../utils/categories';
 import {
@@ -14,7 +14,13 @@ import Search from '../Search';
 import { ThemeContext } from '../../contexts/themeContext';
 import './index.scss';
 
-function Header({ setSearchTerm, setShowSideBar, showSideBar }) {
+function Header({
+  setSearchTerm,
+  setShowSideBar,
+  showSideBar,
+  setCategory,
+  setGenre,
+}) {
   const { theme, toggleTheme } = useContext(ThemeContext);
   const location = useLocation();
   let showSearch = false;
@@ -31,19 +37,32 @@ function Header({ setSearchTerm, setShowSideBar, showSideBar }) {
 
   return (
     <header className={showSideBar ? 'header sidebar-open' : 'header'}>
-      <div className="header__sidebar-action">
-        <span
-          className={showSideBar ? 'action close active' : 'action close'}
-          onClick={() => setShowSideBar(false)}
+      <div className="header__action">
+        <div
+          className="sidebar__logo"
+          onClick={() => {
+            setCategory('Popular');
+            setGenre({});
+          }}
         >
-          <FaChevronLeft />
-        </span>
-        <span
-          className={!showSideBar ? 'action open active' : 'action open'}
-          onClick={() => setShowSideBar(true)}
-        >
-          <FaChevronRight />
-        </span>
+          <Link to="/">
+            Wenflix<span>.</span>
+          </Link>
+        </div>
+        <div className="header__sidebar-action">
+          <span
+            className={showSideBar ? 'action close active' : 'action close'}
+            onClick={() => setShowSideBar(false)}
+          >
+            <FaChevronLeft />
+          </span>
+          <span
+            className={!showSideBar ? 'action open active' : 'action open'}
+            onClick={() => setShowSideBar(true)}
+          >
+            <FaChevronRight />
+          </span>
+        </div>
       </div>
 
       <div
@@ -73,6 +92,8 @@ Header.propTypes = {
   setSearchTerm: PropTypes.func.isRequired,
   setShowSideBar: PropTypes.func.isRequired,
   showSideBar: PropTypes.bool,
+  setCategory: PropTypes.func,
+  setGenre: PropTypes.func,
 };
 
 export default Header;

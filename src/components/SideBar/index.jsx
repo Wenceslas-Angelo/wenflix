@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import categories from '../../utils/categories';
 import genres from '../../utils/genres';
 import './index.scss';
@@ -8,12 +7,6 @@ import './index.scss';
 function SideBar({ setCategory, setGenre, showSideBar }) {
   return (
     <div className={showSideBar ? 'sidebar open' : 'sidebar'}>
-      <div className="sidebar__logo">
-        <Link to="/">
-          Wenflix<span>.</span>
-        </Link>
-      </div>
-
       <div className="sidebar__categories">
         <h2>Categories</h2>
         <ul>
@@ -25,10 +18,8 @@ function SideBar({ setCategory, setGenre, showSideBar }) {
                 setCategory(category.name);
               }}
             >
-              <Link to={category.path}>
-                <span>{category.icon}</span>
-                <span>{category.name}</span>
-              </Link>
+              <span>{category.icon}</span>
+              <span>{category.name}</span>
             </li>
           ))}
         </ul>
@@ -45,10 +36,8 @@ function SideBar({ setCategory, setGenre, showSideBar }) {
                 setCategory('');
               }}
             >
-              <Link to={`/genre/${genre.name}`}>
-                <span>{genre.icon}</span>
-                <span>{genre.name}</span>
-              </Link>
+              <span>{genre.icon}</span>
+              <span>{genre.name}</span>
             </li>
           ))}
         </ul>
