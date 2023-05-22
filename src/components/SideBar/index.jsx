@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import categories from '../../utils/categories';
 import genres from '../../utils/genres';
 import './index.scss';
@@ -18,8 +19,10 @@ function SideBar({ setCategory, setGenre, showSideBar }) {
                 setCategory(category.name);
               }}
             >
-              <span>{category.icon}</span>
-              <span>{category.name}</span>
+              <Link to="/">
+                <span>{category.icon}</span>
+                <span>{category.name}</span>
+              </Link>
             </li>
           ))}
         </ul>
@@ -36,8 +39,10 @@ function SideBar({ setCategory, setGenre, showSideBar }) {
                 setCategory('');
               }}
             >
-              <span>{genre.icon}</span>
-              <span>{genre.name}</span>
+              <Link to="/">
+                <span>{genre.icon}</span>
+                <span>{genre.name}</span>
+              </Link>
             </li>
           ))}
         </ul>
