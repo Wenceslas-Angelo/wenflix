@@ -52,6 +52,8 @@ function Movie() {
                       : noImage
                   }
                   movieId={movie.id}
+                  voteAverage={movie.vote_average}
+                  title={movie.title}
                   clickable
                 />
               ))}
