@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
+
 import MovieInfo from '../components/MovieInfo';
 import MovieInfoBar from '../components/MovieInfoBar';
 import Spinner from '../components/Spinner';
@@ -8,9 +9,9 @@ import useMovieFetch from '../hooks/useMovieFetch';
 import Error from '../components/Error';
 import Grid from '../components/Grid';
 import Thumbnail from '../components/Thumbnail';
-import { IMAGE_BASE_URL, POSTER_SIZE } from '../utils/config';
-import NoImage from '../assets/images/no_image.jpg';
 import Actors from '../components/Actors';
+
+import { IMAGE_BASE_URL, POSTER_SIZE } from '../utils/config';
 import noImage from '../assets/images/no_image.jpg';
 
 function Movie() {
@@ -18,6 +19,7 @@ function Movie() {
   const { state: movie, loading, error, similar } = useMovieFetch(movieId);
   if (loading) return <Spinner />;
   if (error) return <Error />;
+
   return (
     <div>
       {movie.directors ? (
@@ -25,12 +27,14 @@ function Movie() {
           {/* Movie Informations */}
           <MovieInfo
             backdropPath={movie.backdrop_path}
-            posterPath={movie.poster_path ? movie.poster_path : NoImage}
+            posterPath={movie.poster_path ? movie.poster_path : noImage}
             title={movie.title}
             overview={movie.overview}
             voteAverage={movie.vote_average}
             directors={movie.directors}
+            homePage={movie.homepage}
           />
+
           <MovieInfoBar
             time={movie.runtime}
             budget={movie.budget}

@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import MovieInfoStyles from './index.styles';
 import Thumbnail from '../Thumbnail';
+import MovieExternalLink from '../MovieExternalLink';
+
 import { IMAGE_BASE_URL, POSTER_SIZE } from '../../utils/config';
 import NoImage from '../../assets/images/no_image.jpg';
 
@@ -12,6 +15,7 @@ function MovieInfo({
   overview,
   voteAverage,
   directors,
+  homePage,
 }) {
   return (
     <MovieInfoStyles backdrop={backdropPath}>
@@ -44,6 +48,8 @@ function MovieInfo({
               </h3>
             </div>
           </div>
+
+          <MovieExternalLink homePage={homePage} />
         </div>
       </div>
     </MovieInfoStyles>
@@ -57,6 +63,7 @@ MovieInfo.propTypes = {
   overview: PropTypes.string.isRequired,
   voteAverage: PropTypes.number.isRequired,
   directors: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.any)).isRequired,
+  homePage: PropTypes.string,
 };
 
 export default MovieInfo;
